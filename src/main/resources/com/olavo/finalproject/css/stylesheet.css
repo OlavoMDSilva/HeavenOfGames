@@ -1,0 +1,38 @@
+.hBoxBackground {
+    -fx-background-color: #1D2840;
+}
+
+.vBoxBackground {
+    -fx-background-image: url("../images/background.jpg");
+    -fx-background-size: cover;
+}
+
+.button {
+    -fx-background-color: #F22771;
+    -fx-background-radius: 15;
+    -fx-font: 28px Impact;
+}
+
+.button:hover {
+    -fx-background-color: #F21D56;
+    -fx-background-radius: 15;
+    -fx-font: 28px Impact;
+}
+
+.button:pressed {
+    -fx-background-color: #730237;
+    -fx-background-radius: 15;
+    -fx-font: 28px Impact;
+}
+
+.label {
+    -fx-text-fill: #1744BF;
+    -fx-font: 24px Impact;
+    -fx-alignment: center;
+}
+
+.aboutUs {
+    -fx-text-fill: #730237;
+    -fx-font: 24px Impact;
+    -fx-alignment: center;
+}
