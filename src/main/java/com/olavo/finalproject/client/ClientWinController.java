@@ -1,5 +1,9 @@
 package com.olavo.finalproject.client;
 
-public class ClientWinController {
+import com.olavo.finalproject.common.entity.EntityController;
+
+public class ClientWinController extends EntityController {
+
+
 
 }

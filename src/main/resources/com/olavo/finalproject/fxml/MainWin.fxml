@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -17,55 +18,35 @@
                   <Image url="@../images/HeavenOfGames.png" />
                </image>
             </ImageView>
+            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="100.0">
+               <HBox.margin>
+                  <Insets left="437.0" />
+               </HBox.margin>
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" styleClass="deArrow">
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin></ImageView>
+               </children>
+            </HBox>
          </children>
       </HBox>
       <Label stylesheets="@../css/stylesheet.css" text="HEAVEN OF GAMES">
          <VBox.margin>
-            <Insets bottom="50.0" top="50.0" />
+            <Insets bottom="50.0" top="75.0" />
          </VBox.margin>
       </Label>
       <Button fx:id="btnClient" mnemonicParsing="false" onAction="#goToClientWin" text="CLIENT">
          <VBox.margin>
             <Insets bottom="50.0" />
          </VBox.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
-      <Button fx:id="btnAdm" mnemonicParsing="false" onAction="#goToCompanyWin" prefHeight="52.0" prefWidth="112.0" text="ADM" />
-      <VBox prefHeight="200.0" prefWidth="100.0">
-         <children>
-            <HBox alignment="CENTER_LEFT" opacity="0.9" prefHeight="60.0" prefWidth="200.0" styleClass="hBoxBackground" stylesheets="@../css/stylesheet.css">
-               <VBox.margin>
-                  <Insets top="77.0" />
-               </VBox.margin>
-               <children>
-                  <ImageView fitHeight="50.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/zapIcon.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Label styleClass="aboutUs" text="(17) 99152-0616">
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin>
-                  </Label>
-                  <ImageView fitHeight="50.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
-                     <HBox.margin>
-                        <Insets left="165.0" />
-                     </HBox.margin>
-                     <image>
-                        <Image url="@../images/instaIcon.png" />
-                     </image>
-                  </ImageView>
-                  <Label styleClass="aboutUs" text="\@hog_official">
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin>
-                  </Label>
-               </children>
-            </HBox>
-         </children>
-      </VBox>
+      <Button fx:id="btnAdm" mnemonicParsing="false" onAction="#goToAdmLoginWin" prefHeight="52.0" prefWidth="112.0" text="ADM">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
    </children>
 </VBox>

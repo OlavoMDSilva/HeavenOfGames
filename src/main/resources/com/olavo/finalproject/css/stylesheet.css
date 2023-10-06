@@ -1,10 +1,14 @@
+.vBoxBackground {
+    -fx-background-image: url("../images/background.jpg");
+    -fx-background-size: cover;
+}
+
 .hBoxBackground {
     -fx-background-color: #1D2840;
 }
 
-.vBoxBackground {
-    -fx-background-image: url("../images/background.jpg");
-    -fx-background-size: cover;
+.homeButton {
+    -fx-cursor: hand;
 }
 
 .button {
@@ -25,9 +29,33 @@
     -fx-font: 28px Impact;
 }
 
+.arrow {
+    -fx-image: url("../images/arrows/back.png");
+}
+
+.arrow:hover {
+    -fx-image: url("../images/arrows/hoverBack.png");
+}
+
+.arrow:pressed {
+    -fx-image: url("../images/arrows/pressedBack.png");
+}
+
+.deArrow {
+    -fx-image: url("../images/arrows/deBack.png");
+}
+
+.edtFields {
+    -fx-background-color: #273459;
+    -fx-text-fill: #F22771;
+    -fx-font: 20px Impact;
+    -fx-alignment: left;
+    -fx-prompt-text-fill: derive(-fx-control-inner-background, -30%);
+}
+
 .label {
     -fx-text-fill: #1744BF;
-    -fx-font: 24px Impact;
+    -fx-font: 28px Impact;
     -fx-alignment: center;
 }
 
