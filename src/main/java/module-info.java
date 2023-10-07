@@ -1,6 +1,7 @@
 module com.olavo.finalproject {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
 
     exports com.olavo.finalproject;
@@ -13,5 +14,7 @@ module com.olavo.finalproject {
     opens com.olavo.finalproject.common.entity to javafx.fxml;
     exports com.olavo.finalproject.common;
     opens com.olavo.finalproject.common to javafx.fxml;
+    exports com.olavo.finalproject.company;
+    opens com.olavo.finalproject.company to javafx.fxml;
 
 }

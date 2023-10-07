@@ -30,7 +30,7 @@
                 </HBox>
             </children>
         </HBox>
-        <Button fx:id="btnCompany" mnemonicParsing="false" text="COMPANY">
+        <Button fx:id="btnCompany" mnemonicParsing="false" onAction="#goToCompanyWin" text="COMPANY">
             <VBox.margin>
                 <Insets bottom="25.0" top="100.0" />
             </VBox.margin>

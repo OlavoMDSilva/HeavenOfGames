@@ -14,9 +14,10 @@ public class AdmController extends EntityController {
     private Button btnConfirm;
 
     public void goToAdmLobby(ActionEvent event) throws IOException {
-        if (getUser().equals("Adm1234") && getPassword() == 123454) {
-            Main.switchScene("AdmLobbyWin", "AdmLoginWin");
-        }
+//        if (getUser().equals("Adm1234") && getPassword() == 123454) {
+//            Main.switchScene("AdmLobbyWin", "AdmLoginWin");
+//        }
+        Main.switchScene("AdmLobbyWin", "AdmLoginWin");
     }
 
 }

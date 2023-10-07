@@ -53,14 +53,27 @@
     -fx-prompt-text-fill: derive(-fx-control-inner-background, -30%);
 }
 
+.table-view {
+    -fx-background-color: #1D2840;
+}
+
+.column-header {
+    -fx-background-color: #1D2840;
+}
+
+.table-view .column-header-background .filler {
+    -fx-background-color: #1D2840;
+}
+
+.table-view .label {
+    -fx-text-fill: #F22771;
+    -fx-font: 14px Impact;
+    -fx-alignment: left;
+}
+
 .label {
     -fx-text-fill: #1744BF;
     -fx-font: 28px Impact;
     -fx-alignment: center;
 }
 
-.aboutUs {
-    -fx-text-fill: #730237;
-    -fx-font: 24px Impact;
-    -fx-alignment: center;
-}
