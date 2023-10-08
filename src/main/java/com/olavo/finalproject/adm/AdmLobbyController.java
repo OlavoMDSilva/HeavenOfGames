@@ -28,4 +28,22 @@ public class AdmLobbyController extends EntityController {
         }
     }
 
+    public void goToGenreWin(ActionEvent event) {
+        try {
+            Main.switchScene("GenreWin", "AdmLobbyWin");
+        } catch (IOException e) {
+            System.out.println("Error: AdmLobbyController.goToCompanyWin: " + e.getMessage());
+            e.getCause();
+        }
+    }
+
+    public void goToGameWin(ActionEvent event) {
+        try {
+            Main.switchScene("GameWin", "AdmLobbyWin");
+        } catch (IOException e) {
+            System.out.println("Error: AdmLobbyController.goToCompanyWin: " + e.getMessage());
+            e.getCause();
+        }
+    }
+
 }

@@ -15,6 +15,7 @@
     -fx-background-color: #F22771;
     -fx-background-radius: 15;
     -fx-font: 28px Impact;
+    -fx-cursor: hand;
 }
 
 .button:hover {
@@ -31,14 +32,17 @@
 
 .arrow {
     -fx-image: url("../images/arrows/back.png");
+    -fx-cursor: hand;
 }
 
 .arrow:hover {
     -fx-image: url("../images/arrows/hoverBack.png");
+    -fx-cursor: hand;
 }
 
 .arrow:pressed {
     -fx-image: url("../images/arrows/pressedBack.png");
+    -fx-cursor: hand;
 }
 
 .deArrow {
@@ -71,9 +75,47 @@
     -fx-alignment: left;
 }
 
+.date-picker {
+    -fx-background-color: #273459;
+}
+
+.date-picker-popup  {
+	-fx-border-color: #273459;
+}
+
+.date-picker-popup .month-year-pane {
+	-fx-background-color: #273459;
+}
+
+.date-picker-popup .spinner .button .left-arrow,
+.date-picker-popup .spinner .button .right-arrow {
+	-fx-background-color: #273459;
+}
+
+.combo-box {
+    -fx-background-color: #273459;
+    -fx-font: 20px Impact;
+    -fx-alignment: left;
+}
+
+.combo-box .list-cell {
+    -fx-background-color: #273459;
+    -fx-text-fill: #F22771;
+}
+
+.combo-box .list-view .list-cell {
+    -fx-background-color: #273459;
+    -fx-text-fill: #F22771;
+}
+
 .label {
     -fx-text-fill: #1744BF;
     -fx-font: 28px Impact;
     -fx-alignment: center;
 }
 
+.label-error {
+    -fx-text-fill: red;
+    -fx-font: 18px Impact;
+    -fx-alignment: center;
+}

@@ -1,4 +1,6 @@
 package com.olavo.finalproject.genre;
 
-public class GenreDTO {
+import com.olavo.finalproject.common.entity.EntityDTO;
+
+public class GenreDTO extends EntityDTO {
 }

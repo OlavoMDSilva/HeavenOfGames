@@ -18,21 +18,6 @@ import java.util.ResourceBundle;
 public class CompanyController extends EntityController implements Initializable {
 
     @FXML
-    private ImageView btnBack;
-
-    @FXML
-    private Button btnDel;
-
-    @FXML
-    private ImageView btnHome;
-
-    @FXML
-    private Button btnRegister;
-
-    @FXML
-    private Button btnUpdate;
-
-    @FXML
     private TextField edtEmail;
 
     @FXML
@@ -63,16 +48,19 @@ public class CompanyController extends EntityController implements Initializable
 
     public void btnRegisterClick(ActionEvent event) {
         register();
+        clear();
         listAll();
     }
 
     public void btnUpdateClick(ActionEvent event) {
         update();
+        clear();
         listAll();
     }
 
-    public void btnDelClick(ActionEvent event) {
+    public void btnDeleteClick(ActionEvent event) {
         delete();
+        clear();
         listAll();
     }
 
@@ -120,6 +108,12 @@ public class CompanyController extends EntityController implements Initializable
         companyDTO.setPhone(edtPhone.getText());
 
         companyDAO.update(companyDTO);
+    }
+
+    private void clear() {
+        edtName.setText("");
+        edtEmail.setText("");
+        edtPhone.setText("");
     }
 
 }

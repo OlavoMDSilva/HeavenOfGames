@@ -11,8 +11,8 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" styleClass="vBoxBackground" stylesheets="@../css/stylesheet.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.olavo.finalproject.adm.AdmLobbyController">
-    <children>
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" styleClass="vBoxBackground" stylesheets="@../css/stylesheet.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.olavo.finalproject.client.ClientLobbyController">
+   <children>
       <GridPane prefHeight="80.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -23,17 +23,20 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-                <ImageView fx:id="btnHome" fitHeight="80.0" fitWidth="200.0" onMouseClicked="#goHome" pickOnBounds="true" preserveRatio="true" styleClass="homeButton">
-                    <image>
-                        <Image url="@../images/HeavenOfGames.png" />
-                    </image>
-                </ImageView>
-                  <ImageView fx:id="btnBack" fitHeight="50.0" fitWidth="100.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true" styleClass="arrow" GridPane.columnIndex="2">
+            <ImageView fx:id="btnHome" fitHeight="80.0" fitWidth="200.0" onMouseClicked="#goHome" pickOnBounds="true" preserveRatio="true" styleClass="homeButton">
+               <image>
+                  <Image url="@../images/HeavenOfGames.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="btnBack" fitHeight="50.0" fitWidth="100.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true" styleClass="arrow" GridPane.columnIndex="2">
                <GridPane.margin>
                   <Insets right="25.0" />
                </GridPane.margin>
             </ImageView>
-            <Label text="ADM LOBBY" GridPane.columnIndex="1" />
+            <Label stylesheets="@../css/stylesheet.css" text="CLIENT PAGE" GridPane.columnIndex="1" />
          </children>
       </GridPane>
       <GridPane VBox.vgrow="ALWAYS">
@@ -43,25 +46,22 @@
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-              <Button fx:id="btnCompany" mnemonicParsing="false" onAction="#goToCompanyWin" text="COMPANY">
-                  <cursor>
-                      <Cursor fx:constant="HAND" />
-                  </cursor>
-              </Button>
-              <Button fx:id="btnGenre" mnemonicParsing="false" onAction="#goToGenreWin" prefHeight="52.0" prefWidth="146.0" text="GENRE" GridPane.rowIndex="1">
-                  <cursor>
-                      <Cursor fx:constant="HAND" />
-                  </cursor>
+            <Button fx:id="btnClient" mnemonicParsing="false" prefHeight="52.0" prefWidth="126.0" text="SIGN IN">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button fx:id="btnGame" mnemonicParsing="false" onAction="#goToGameWin" prefWidth="146.0" text="GAME" GridPane.rowIndex="2">
+            <Button fx:id="btnAdm" mnemonicParsing="false" prefHeight="52.0" prefWidth="126.0" text="SIGN UP" GridPane.rowIndex="1">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
          </children>
+         <VBox.margin>
+            <Insets bottom="70.0" top="70.0" />
+         </VBox.margin>
       </GridPane>
-    </children>
+   </children>
 </VBox>

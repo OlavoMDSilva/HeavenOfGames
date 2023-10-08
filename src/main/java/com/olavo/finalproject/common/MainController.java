@@ -17,7 +17,7 @@ public class MainController {
 
     public void goToClientWin(ActionEvent event) {
         try {
-            Main.switchScene("ClientWin", "MainWin");
+            Main.switchScene("ClientLobbyWin", "MainWin");
         } catch (IOException e) {
             System.out.println("ERROR: MainController.goToClientWin:" + e.getMessage());
         }

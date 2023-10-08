@@ -1,20 +1,21 @@
 package com.olavo.finalproject.company;
 
 import com.olavo.finalproject.common.entity.EntityDAO;
-import com.olavo.finalproject.common.entity.EntityDTO;
+import com.olavo.finalproject.common.entity.EntityDAOInterface;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class CompanyDAO extends EntityDAO {
+public class CompanyDAO extends EntityDAO implements EntityDAOInterface<CompanyDTO> {
 
-    public void register(EntityDTO entityDTO) {
+    @Override
+    public void register(CompanyDTO companyDTO) {
         String sql = "insert into company (name, email, tel) values (?, ?, ?)";
         try {
             pstm = connection.prepareStatement(sql);
-            pstm.setString(1, entityDTO.getName());
-            pstm.setString(2, entityDTO.getEmail());
-            pstm.setString(3, entityDTO.getPhone());
+            pstm.setString(1, companyDTO.getName());
+            pstm.setString(2, companyDTO.getEmail());
+            pstm.setString(3, companyDTO.getPhone());
             pstm.execute();
             pstm.close();
         } catch (SQLException e) {
@@ -24,9 +25,10 @@ public class CompanyDAO extends EntityDAO {
         }
     }
 
+    @Override
     public ArrayList<CompanyDTO> findAll() {
         ArrayList<CompanyDTO> list = new ArrayList<>();
-        String sql = "select * from company";
+        String sql = "select * from company order by name";
         try {
             pstm = connection.prepareStatement(sql);
             rs = pstm.executeQuery();
@@ -50,11 +52,15 @@ public class CompanyDAO extends EntityDAO {
         return list;
     }
 
-    public void delete(EntityDTO entityDTO) {
-        String sql = "delete from company where id = ?";
+    @Override
+    public void update(CompanyDTO companyDTO) {
+        String sql = "update company set name = ?, email = ?, tel = ? where id = ?";
         try {
             pstm = connection.prepareStatement(sql);
-            pstm.setInt(1, entityDTO.getId());
+            pstm.setString(1, companyDTO.getName());
+            pstm.setString(2, companyDTO.getEmail());
+            pstm.setString(3, companyDTO.getPhone());
+            pstm.setInt(4, companyDTO.getId());
             pstm.execute();
             pstm.close();
         } catch (SQLException e) {
@@ -64,14 +70,11 @@ public class CompanyDAO extends EntityDAO {
         }
     }
 
-    public void update(EntityDTO entityDTO) {
-        String sql = "update company set name = ?, email = ?, tel = ? where id = ?";
+    public void delete(CompanyDTO companyDTO) {
+        String sql = "delete from company where id = ?";
         try {
             pstm = connection.prepareStatement(sql);
-            pstm.setString(1, entityDTO.getName());
-            pstm.setString(2, entityDTO.getEmail());
-            pstm.setString(3, entityDTO.getPhone());
-            pstm.setInt(4, entityDTO.getId());
+            pstm.setInt(1, companyDTO.getId());
             pstm.execute();
             pstm.close();
         } catch (SQLException e) {
@@ -80,4 +83,5 @@ public class CompanyDAO extends EntityDAO {
             System.out.println("CompanyDAO.register: Error: " + e.getErrorCode());
         }
     }
+
 }
