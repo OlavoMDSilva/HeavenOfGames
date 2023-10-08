@@ -10,11 +10,11 @@ public class GenreDAO extends EntityDAO implements EntityDAOInterface<GenreDTO> 
 
 
     @Override
-    public void register(GenreDTO entity) {
+    public void register(GenreDTO genreDTO) {
         String sql = "insert into genre (genre) values (?)";
         try {
             pstm = connection.prepareStatement(sql);
-            pstm.setString(1, entity.getName());
+            pstm.setString(1, genreDTO.getName());
             pstm.execute();
             pstm.close();
         } catch (SQLException e) {
@@ -50,12 +50,12 @@ public class GenreDAO extends EntityDAO implements EntityDAOInterface<GenreDTO> 
     }
 
     @Override
-    public void update(GenreDTO entity) {
+    public void update(GenreDTO genreDTO) {
         String sql = "update genre set genre = ? where id = ?";
         try {
             pstm = connection.prepareStatement(sql);
-            pstm.setString(1, entity.getName());
-            pstm.setInt(2, entity.getId());
+            pstm.setString(1, genreDTO.getName());
+            pstm.setInt(2, genreDTO.getId());
             pstm.execute();
             pstm.close();
         } catch (SQLException e) {
@@ -66,11 +66,11 @@ public class GenreDAO extends EntityDAO implements EntityDAOInterface<GenreDTO> 
     }
 
     @Override
-    public void delete(GenreDTO entity) {
+    public void delete(GenreDTO genreDTO) {
         String sql = "delete from genre where id = ?";
         try {
             pstm = connection.prepareStatement(sql);
-            pstm.setInt(1, entity.getId());
+            pstm.setInt(1, genreDTO.getId());
             pstm.execute();
             pstm.close();
         } catch (SQLException e) {

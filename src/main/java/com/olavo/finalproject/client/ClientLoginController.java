@@ -1,6 +1,64 @@
 package com.olavo.finalproject.client;
 
+import com.olavo.finalproject.Main;
+import com.olavo.finalproject.adm.AdmDAO;
+import com.olavo.finalproject.adm.AdmDTO;
 import com.olavo.finalproject.common.entity.EntityController;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class ClientLoginController extends EntityController {
+
+    @FXML
+    private Label lblError;
+
+    @FXML
+    private Button btnConfirm;
+
+    @FXML
+    private Button btnCancel;
+
+    public void btnConfirmClick(ActionEvent event) {
+        login();
+    }
+
+    public void btnCancelClick(ActionEvent event) {
+        try {
+            Main.switchScene("ClientLobbyWin");
+        } catch (IOException e) {
+            System.out.println("ClientLoginController.btnCancelClick: " + e.getMessage());
+            System.out.println("Cause: " + e.getCause());
+        }
+    }
+
+    private void login() {
+        ArrayList<ClientDTO> clientList = new ClientDAO().findAll();
+        if (!edtUser.getText().equals("") & !pswPass.getText().equals("")) {
+            String user = edtUser.getText();
+            int password = Integer.parseInt(pswPass.getText());
+            for (ClientDTO clientDTO : clientList) {
+                if (user.equals(clientDTO.getUser()) && password == clientDTO.getPassword()) {
+                    try {
+                        Main.switchScene("StoreWin", "ClientLoginWin");
+                    } catch (IOException e) {
+                        System.out.println("ClientLoginController.login: " + e.getMessage());
+                        System.out.println("Cause: " + e.getCause());
+                    }
+                }
+                else {
+                    lblError.setText("Invalid User or Password!");
+                    break;
+                }
+            }
+        }
+        else {
+            lblError.setText("Invalid User or Password!");
+        }
+    }
+
 }

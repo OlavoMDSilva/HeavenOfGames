@@ -15,13 +15,13 @@ public class AdmDAO extends EntityDAO {
             rs = pstm.executeQuery();
 
             while (rs.next()) {
-                AdmDTO AdmDTO = new AdmDTO();
+                AdmDTO admDTO = new AdmDTO();
 
-                AdmDTO.setId(rs.getInt("adm.id"));
-                AdmDTO.setUser(rs.getString("adm.user"));
-                AdmDTO.setPassword(rs.getInt("adm.password"));
+                admDTO.setId(rs.getInt("adm.id"));
+                admDTO.setUser(rs.getString("adm.user"));
+                admDTO.setPassword(rs.getInt("adm.password"));
 
-                list.add(AdmDTO);
+                list.add(admDTO);
             }
 
         } catch (SQLException e) {

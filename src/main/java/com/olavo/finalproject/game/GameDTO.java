@@ -61,4 +61,5 @@ public class GameDTO extends EntityDTO {
     public void setCodCompany(int codCompany) {
         this.codCompany = codCompany;
     }
+
 }

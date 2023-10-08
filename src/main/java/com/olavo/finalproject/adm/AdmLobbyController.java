@@ -32,7 +32,7 @@ public class AdmLobbyController extends EntityController {
         try {
             Main.switchScene("GenreWin", "AdmLobbyWin");
         } catch (IOException e) {
-            System.out.println("Error: AdmLobbyController.goToCompanyWin: " + e.getMessage());
+            System.out.println("Error: AdmLobbyController.goToGenreWin: " + e.getMessage());
             e.getCause();
         }
     }
@@ -41,7 +41,7 @@ public class AdmLobbyController extends EntityController {
         try {
             Main.switchScene("GameWin", "AdmLobbyWin");
         } catch (IOException e) {
-            System.out.println("Error: AdmLobbyController.goToCompanyWin: " + e.getMessage());
+            System.out.println("Error: AdmLobbyController.goToGameWin: " + e.getMessage());
             e.getCause();
         }
     }

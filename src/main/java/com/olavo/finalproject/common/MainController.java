@@ -27,7 +27,7 @@ public class MainController {
         try {
             Main.switchScene("AdmLoginWin", "MainWin");
         } catch (IOException e) {
-            System.out.println("ERROR: MainController.goToCompanyWin:" + e.getCause());
+            System.out.println("ERROR: MainController.goToAdmLoginWin:" + e.getCause());
         }
     }
 

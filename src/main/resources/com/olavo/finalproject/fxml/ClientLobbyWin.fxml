@@ -46,18 +46,20 @@
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btnClient" mnemonicParsing="false" prefHeight="52.0" prefWidth="126.0" text="SIGN IN">
+            <Button fx:id="btnSignIn" mnemonicParsing="false" onAction="#btnSignInClick" prefHeight="52.0" prefWidth="142.0" text="SIGN IN">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnAdm" mnemonicParsing="false" prefHeight="52.0" prefWidth="126.0" text="SIGN UP" GridPane.rowIndex="1">
+            <Button fx:id="btnSignUp" mnemonicParsing="false" onAction="#btnSignUpClick" prefHeight="52.0" prefWidth="142.0" text="SIGN UP" GridPane.rowIndex="1">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+            <Button fx:id="btnAccount" mnemonicParsing="false" onAction="#btnAccountClick" text="ACCOUNT" GridPane.rowIndex="2" />
          </children>
          <VBox.margin>
             <Insets bottom="70.0" top="70.0" />

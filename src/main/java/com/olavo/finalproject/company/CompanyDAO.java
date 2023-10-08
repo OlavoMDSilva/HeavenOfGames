@@ -45,9 +45,9 @@ public class CompanyDAO extends EntityDAO implements EntityDAOInterface<CompanyD
             }
 
         } catch (SQLException e) {
-            System.out.println("CompanyDAO.register: Exception: " + e.getMessage());
-            System.out.println("CompanyDAO.register: SQLState: " + e.getSQLState());
-            System.out.println("CompanyDAO.register: Error: " + e.getErrorCode());
+            System.out.println("CompanyDAO.findAll: Exception: " + e.getMessage());
+            System.out.println("CompanyDAO.findAll: SQLState: " + e.getSQLState());
+            System.out.println("CompanyDAO.findAll: Error: " + e.getErrorCode());
         }
         return list;
     }
@@ -64,12 +64,13 @@ public class CompanyDAO extends EntityDAO implements EntityDAOInterface<CompanyD
             pstm.execute();
             pstm.close();
         } catch (SQLException e) {
-            System.out.println("CompanyDAO.register: Exception: " + e.getMessage());
-            System.out.println("CompanyDAO.register: SQLState: " + e.getSQLState());
-            System.out.println("CompanyDAO.register: Error: " + e.getErrorCode());
+            System.out.println("CompanyDAO.update: Exception: " + e.getMessage());
+            System.out.println("CompanyDAO.update: SQLState: " + e.getSQLState());
+            System.out.println("CompanyDAO.update: Error: " + e.getErrorCode());
         }
     }
 
+    @Override
     public void delete(CompanyDTO companyDTO) {
         String sql = "delete from company where id = ?";
         try {
@@ -78,9 +79,9 @@ public class CompanyDAO extends EntityDAO implements EntityDAOInterface<CompanyD
             pstm.execute();
             pstm.close();
         } catch (SQLException e) {
-            System.out.println("CompanyDAO.register: Exception: " + e.getMessage());
-            System.out.println("CompanyDAO.register: SQLState: " + e.getSQLState());
-            System.out.println("CompanyDAO.register: Error: " + e.getErrorCode());
+            System.out.println("CompanyDAO.delete: Exception: " + e.getMessage());
+            System.out.println("CompanyDAO.delete: SQLState: " + e.getSQLState());
+            System.out.println("CompanyDAO.delete: Error: " + e.getErrorCode());
         }
     }
 

@@ -5,25 +5,24 @@ import com.olavo.finalproject.common.entity.EntityDAOInterface;
 
 import java.sql.Date;
 import java.sql.SQLException;
-import java.time.ZoneId;
 import java.util.ArrayList;
 
 public class GameDAO extends EntityDAO implements EntityDAOInterface<GameDTO> {
 
     @Override
-    public void register(GameDTO entity) {
+    public void register(GameDTO gameDTO) {
         String sql = "insert into game (title, launch_date, idiom, platform, price, cod_genre, cod_company) " +
                 "values (?, ?, ?, ?, ?, ?, ?)";
         try {
-            Date launched = Date.valueOf(entity.getLaunchedDate());
+            Date launched = Date.valueOf(gameDTO.getLaunchedDate());
             pstm = connection.prepareStatement(sql);
-            pstm.setString(1, entity.getName());
+            pstm.setString(1, gameDTO.getName());
             pstm.setDate(2, launched);
-            pstm.setString(3, entity.getIdiom());
-            pstm.setString(4, entity.getPlatform());
-            pstm.setDouble(5, entity.getPrice());
-            pstm.setInt(6, entity.getCodGenre());
-            pstm.setInt(7, entity.getCodCompany());
+            pstm.setString(3, gameDTO.getIdiom());
+            pstm.setString(4, gameDTO.getPlatform());
+            pstm.setDouble(5, gameDTO.getPrice());
+            pstm.setInt(6, gameDTO.getCodGenre());
+            pstm.setInt(7, gameDTO.getCodCompany());
             pstm.execute();
             pstm.close();
         } catch (SQLException e) {
@@ -65,20 +64,20 @@ public class GameDAO extends EntityDAO implements EntityDAOInterface<GameDTO> {
     }
 
     @Override
-    public void update(GameDTO entity) {
+    public void update(GameDTO gameDTO) {
         String sql = "update game set title = ?, launch_date = ?, idiom = ?, platform = ?, " +
                 "price = ?, cod_genre = ?, cod_company = ? where id = ?";
         try {
-            Date launched = Date.valueOf(entity.getLaunchedDate());
+            Date launched = Date.valueOf(gameDTO.getLaunchedDate());
             pstm = connection.prepareStatement(sql);
-            pstm.setString(1, entity.getName());
+            pstm.setString(1, gameDTO.getName());
             pstm.setDate(2, launched);
-            pstm.setString(3, entity.getIdiom());
-            pstm.setString(4, entity.getPlatform());
-            pstm.setDouble(5, entity.getPrice());
-            pstm.setInt(6, entity.getCodGenre());
-            pstm.setInt(7, entity.getCodCompany());
-            pstm.setInt(8, entity.getId());
+            pstm.setString(3, gameDTO.getIdiom());
+            pstm.setString(4, gameDTO.getPlatform());
+            pstm.setDouble(5, gameDTO.getPrice());
+            pstm.setInt(6, gameDTO.getCodGenre());
+            pstm.setInt(7, gameDTO.getCodCompany());
+            pstm.setInt(8, gameDTO.getId());
             pstm.execute();
             pstm.close();
         } catch (SQLException e) {
@@ -89,11 +88,11 @@ public class GameDAO extends EntityDAO implements EntityDAOInterface<GameDTO> {
     }
 
     @Override
-    public void delete(GameDTO entity) {
+    public void delete(GameDTO gameDTO) {
         String sql = "delete from game where id = ?";
         try {
             pstm = connection.prepareStatement(sql);
-            pstm.setInt(1, entity.getId());
+            pstm.setInt(1, gameDTO.getId());
             pstm.execute();
             pstm.close();
         } catch (SQLException e) {

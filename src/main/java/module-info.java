@@ -19,5 +19,7 @@ module com.olavo.finalproject {
     opens com.olavo.finalproject.game to javafx.fxml;
     exports com.olavo.finalproject.genre;
     opens com.olavo.finalproject.genre to javafx.fxml;
+    exports com.olavo.finalproject.store;
+    opens com.olavo.finalproject.store to javafx.fxml;
 
 }

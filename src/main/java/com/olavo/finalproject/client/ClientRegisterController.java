@@ -32,16 +32,34 @@ public class ClientRegisterController extends EntityController {
     private TextField edtName;
 
     public void btnRegisterClick() {
-
+        register();
+        try {
+            Main.switchScene("ClientLobbyWin");
+        } catch (IOException e) {
+            System.out.println("ClientRegisterController.cancel: " + e.getMessage());
+            System.out.println("Cause: " + e.getCause());
+        }
     }
 
     public void btnCancelClick() {
         cancel();
     }
 
+    private void register() {
+        ClientDTO clientDTO = new ClientDTO();
+        ClientDAO clientDAO = new ClientDAO();
+
+        clientDTO.setName(edtName.getText());
+        clientDTO.setPassword(Integer.parseInt(pswPass.getText()));
+        clientDTO.setBorn(dpDate.getValue());
+        clientDTO.setEmail(edtEmail.getText());
+
+        clientDAO.register(clientDTO);
+    }
+
     private void cancel() {
         try {
-            Main.switchScene("ClientLobby");
+            Main.switchScene("ClientLobbyWin");
         } catch (IOException e) {
             System.out.println("ClientRegisterController.cancel: " + e.getMessage());
             System.out.println("Cause: " + e.getCause());
