@@ -4,12 +4,10 @@ import com.olavo.finalproject.common.entity.EntityController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -47,9 +45,11 @@ public class CompanyController extends EntityController implements Initializable
     }
 
     public void btnRegisterClick(ActionEvent event) {
-        register();
-        clear();
-        listAll();
+        if (checkAll()) {
+            register();
+            clear();
+            listAll();
+        }
     }
 
     public void btnUpdateClick(ActionEvent event) {
@@ -114,6 +114,32 @@ public class CompanyController extends EntityController implements Initializable
         edtName.setText("");
         edtEmail.setText("");
         edtPhone.setText("");
+    }
+
+    private boolean checkAll() {
+        if (validName()) {
+            if (validEmail()) {
+                if (validPhone()) {
+                    return true;
+                }
+                else edtPhone.requestFocus();
+            }
+            else edtEmail.requestFocus();
+        }
+        else edtName.requestFocus();
+        return false;
+    }
+
+    private boolean validName() {
+        return !edtName.getText().equals("");
+    }
+
+    private boolean validEmail() {
+        return !edtEmail.getText().equals("");
+    }
+
+    private boolean validPhone() {
+        return !edtPhone.getText().equals("");
     }
 
 }

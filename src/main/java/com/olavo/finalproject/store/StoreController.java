@@ -73,7 +73,7 @@ public class StoreController extends EntityController implements Initializable {
 
     private void listAllGames() {
         colTitle1.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colGenre1.setCellValueFactory(new PropertyValueFactory<>("codGenre"));
+        colGenre1.setCellValueFactory(new PropertyValueFactory<>("genre"));
         colPrice1.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         ArrayList<GameDTO> gameList = new GameDAO().findAll();
@@ -84,7 +84,7 @@ public class StoreController extends EntityController implements Initializable {
 
     private void addToBuy() {
         colTitle2.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colGenre2.setCellValueFactory(new PropertyValueFactory<>("codGenre"));
+        colGenre2.setCellValueFactory(new PropertyValueFactory<>("genre"));
         colPrice2.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         int index = tbGames.getSelectionModel().getSelectedIndex();

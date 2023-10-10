@@ -55,6 +55,9 @@ public class GameDAO extends EntityDAO implements EntityDAOInterface<GameDTO> {
                 list.add(gameDTO);
             }
 
+            setGenreById(list);
+            setCompanyById(list);
+
         } catch (SQLException e) {
             System.out.println("GameDAO.register: Exception: " + e.getMessage());
             System.out.println("GameDAO.register: SQLState: " + e.getSQLState());
@@ -99,6 +102,28 @@ public class GameDAO extends EntityDAO implements EntityDAOInterface<GameDTO> {
             System.out.println("GameDAO.register: Exception: " + e.getMessage());
             System.out.println("GameDAO.register: SQLState: " + e.getSQLState());
             System.out.println("GameDAO.register: Error: " + e.getErrorCode());
+        }
+    }
+
+    private void setGenreById(ArrayList<GameDTO> list) throws SQLException {
+        for (GameDTO gameDTO : list) {
+            String sql = String.format("select genre from genre where id = %s", gameDTO.getCodGenre());
+            pstm = connection.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                gameDTO.setGenre(rs.getString("genre"));
+            }
+        }
+    }
+
+    private void setCompanyById(ArrayList<GameDTO> list) throws SQLException {
+        for (GameDTO gameDTO : list) {
+            String sql = String.format("select name from company where id = %s", gameDTO.getCodCompany());
+            pstm = connection.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                gameDTO.setCompany(rs.getString("name"));
+            }
         }
     }
 

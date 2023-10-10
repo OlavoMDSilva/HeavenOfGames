@@ -84,9 +84,11 @@ public class GameController extends EntityController implements Initializable {
     }
 
     public void btnRegisterClick(ActionEvent event) {
-        register();
-        clear();
-        listAll();
+        if (checkAll()) {
+            register();
+            clear();
+            listAll();
+        }
     }
 
     public void btnUpdateClick(ActionEvent event) {
@@ -128,8 +130,8 @@ public class GameController extends EntityController implements Initializable {
         colPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
         colLaunched.setCellValueFactory(new PropertyValueFactory<>("launchedDate"));
         colPlatform.setCellValueFactory(new PropertyValueFactory<>("platform"));
-        colGenre.setCellValueFactory(new PropertyValueFactory<>("codGenre"));
-        colCompany.setCellValueFactory(new PropertyValueFactory<>("codCompany"));
+        colGenre.setCellValueFactory(new PropertyValueFactory<>("genre"));
+        colCompany.setCellValueFactory(new PropertyValueFactory<>("company"));
 
         ArrayList<GameDTO> list = new GameDAO().findAll();
 
@@ -194,6 +196,75 @@ public class GameController extends EntityController implements Initializable {
         for (CompanyDTO companyDTO : list) {
             cbCompany.getItems().add(companyDTO.getName());
         }
+    }
+
+    private boolean checkAll() {
+        if (!checkName()) return false;
+        if (!checkDate()) return false;
+        if (!checkIdiom()) return false;
+        if (!checkPlatform()) return false;
+        if (!checkPrice()) return false;
+        if (!checkGenre()) return false;
+        return (!checkCompany());
+    }
+
+    private boolean checkName() {
+        if (edtName.getText().equals("")) {
+            edtName.requestFocus();
+            return false;
+        }
+        return true;
+    }
+
+    private boolean checkDate() {
+        if ((dpDate.getValue() == null)) {
+            dpDate.requestFocus();
+            return false;
+        }
+        return true;
+    }
+
+    private boolean checkIdiom() {
+        String idiom = edtIdiom.getText();
+        if (idiom.matches("[0-9]") || idiom.equals("")) {
+            edtIdiom.requestFocus();
+            return false;
+        }
+        return true;
+    }
+
+    private boolean checkPlatform() {
+        String platform = edtPlatform.getText();
+        if (platform.matches("[0-9]") || platform.equals("")) {
+            edtPlatform.requestFocus();
+            return false;
+        }
+        return true;
+    }
+
+    private boolean checkPrice() {
+        String price = edtPrice.getText();
+        if (price.matches("[0-9]") || price.equals("")) {
+            edtPrice.requestFocus();
+            return false;
+        }
+        return true;
+    }
+
+    private boolean checkGenre() {
+        if (cbGenre.getSelectionModel().getSelectedIndex() == 0) {
+            cbGenre.requestFocus();
+            return false;
+        }
+        return true;
+    }
+
+    private boolean checkCompany() {
+        if (cbCompany.getSelectionModel().getSelectedIndex() == 0) {
+            cbCompany.requestFocus();
+            return false;
+        }
+        return true;
     }
 
 }

@@ -33,9 +33,11 @@ public class GenreController extends EntityController implements Initializable {
     }
 
     public void btnRegisterClick(ActionEvent event) {
-        register();
-        clear();
-        listAll();
+        if (checkGenre()) {
+            register();
+            clear();
+            listAll();
+        }
     }
 
     public void btnUpdateClick(ActionEvent event) {
@@ -92,6 +94,10 @@ public class GenreController extends EntityController implements Initializable {
 
     private void clear() {
         edtName.setText("");
+    }
+
+    private boolean checkGenre() {
+        return !edtName.getText().equals("");
     }
 
 }

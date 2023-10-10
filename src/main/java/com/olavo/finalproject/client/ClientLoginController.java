@@ -1,8 +1,6 @@
 package com.olavo.finalproject.client;
 
 import com.olavo.finalproject.Main;
-import com.olavo.finalproject.adm.AdmDAO;
-import com.olavo.finalproject.adm.AdmDTO;
 import com.olavo.finalproject.common.entity.EntityController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,7 +22,15 @@ public class ClientLoginController extends EntityController {
     private Button btnCancel;
 
     public void btnConfirmClick(ActionEvent event) {
-        login();
+        if (checkClient()) {
+            try {
+                Main.switchScene("StoreWin", "ClientLoginWin");
+            } catch (IOException e) {
+                System.out.println("ClientLoginController.btnConfirmClick: " + e.getMessage());
+                System.out.println("Cause: " + e.getCause());
+            }
+        }
+        else lblError.setText("Invalid User or Password!");
     }
 
     public void btnCancelClick(ActionEvent event) {
@@ -36,29 +42,19 @@ public class ClientLoginController extends EntityController {
         }
     }
 
-    private void login() {
+    private boolean checkClient() {
         ArrayList<ClientDTO> clientList = new ClientDAO().findAll();
-        if (!edtUser.getText().equals("") & !pswPass.getText().equals("")) {
-            String user = edtUser.getText();
-            int password = Integer.parseInt(pswPass.getText());
+        String user = edtUser.getText();
+        String password = pswPass.getText();
+        if (!user.equals("") && !password.equals("")) {
             for (ClientDTO clientDTO : clientList) {
-                if (user.equals(clientDTO.getUser()) && password == clientDTO.getPassword()) {
-                    try {
-                        Main.switchScene("StoreWin", "ClientLoginWin");
-                    } catch (IOException e) {
-                        System.out.println("ClientLoginController.login: " + e.getMessage());
-                        System.out.println("Cause: " + e.getCause());
-                    }
-                }
-                else {
-                    lblError.setText("Invalid User or Password!");
-                    break;
-                }
+                String clientUser = clientDTO.getUser();
+                String clientPass = Integer.toString(clientDTO.getPassword());
+
+                if (clientUser.equals(user) && clientPass.equals(password)) return true;
             }
         }
-        else {
-            lblError.setText("Invalid User or Password!");
-        }
+        return false;
     }
 
 }

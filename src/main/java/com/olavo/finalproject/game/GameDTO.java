@@ -8,7 +8,7 @@ public class GameDTO extends EntityDTO {
 
     private LocalDate launchedDate;
 
-    private String idiom, platform;
+    private String idiom, platform, genre, company;
 
     private double price;
 
@@ -62,4 +62,19 @@ public class GameDTO extends EntityDTO {
         this.codCompany = codCompany;
     }
 
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
 }

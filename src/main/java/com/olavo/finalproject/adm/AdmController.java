@@ -20,28 +20,30 @@ public class AdmController extends EntityController {
     private Button btnConfirm;
 
     public void goToAdmLobby(ActionEvent event) {
-        ArrayList<AdmDTO> admList = new AdmDAO().findAll();
-        if (!edtUser.getText().equals("") & !pswPass.getText().equals("")) {
-            String user = edtUser.getText();
-            int password = Integer.parseInt(pswPass.getText());
-            for (AdmDTO admDTO : admList) {
-                if (user.equals(admDTO.getUser()) && password == admDTO.getPassword()) {
-                    try {
-                        Main.switchScene("AdmLobbyWin", "AdmLoginWin");
-                    } catch (IOException e) {
-                        System.out.println("AdmController.goToAdmLobby: " + e.getMessage());
-                        System.out.println("Cause: " + e.getCause());
-                    }
-                }
-                else {
-                    lblError.setText("Invalid User or Password!");
-                    break;
-                }
+        if (checkAdm()) {
+            try {
+                Main.switchScene("AdmLobbyWin", "AdmLoginWin");
+            } catch (IOException e) {
+                System.out.println("AdmController.goToAdmLobby: " + e.getMessage());
+                System.out.println("Cause: " + e.getCause());
             }
         }
-        else {
-            lblError.setText("Invalid User or Password!");
+        else lblError.setText("Invalid User or Password!");
+    }
+
+    private boolean checkAdm() {
+        ArrayList<AdmDTO> admList = new AdmDAO().findAll();
+        String user = edtUser.getText();
+        String password = pswPass.getText();
+        if (!user.equals("") && !password.equals("")) {
+            for (AdmDTO admDTO : admList) {
+                String admPass = Integer.toString(admDTO.getPassword());
+                String admUser = admDTO.getUser();
+
+                if (user.equals(admUser) && password.equals(admPass)) return true;
+            }
         }
+        return false;
     }
 
 }
