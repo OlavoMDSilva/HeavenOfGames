@@ -1,0 +1,15 @@
+# HeavenOfGames_JDBC_FinalProject
+
+## Description
+
+- A Full CRUD project created with the intention of learning how that works behind the scenes
+- It can create, read, update and delete any Companies, Genres or Games from the ADM section
+- Create and delete your account as a client and list all games
+- Validations and test automation with TestFx
+
+## Technologies Used
+
+- Programming Lenguages: Java
+- Database: MySql
+- Frontend Technologies: JavaFX and CSS
+- Version Control: Git for tracking changes
