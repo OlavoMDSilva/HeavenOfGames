@@ -1,24 +1,34 @@
+
+Your README is already well-structured, but I’ll refine it for better clarity, professionalism, and grammar. Here’s an improved version:
+
+markdown
+Copy
+Edit
 <div align="center">
   
-# HeavenOfGames
+# HeavenOfGames 🎮
 
-![Static Badge](https://img.shields.io/badge/Java-green)
-![Static Badge](https://img.shields.io/badge/JavaFx-red)
-![Static Badge](https://img.shields.io/badge/TestFx-orange)
-![Static Badge](https://img.shields.io/badge/CSS-blue)
-  
+![Java](https://img.shields.io/badge/Java-green)
+![JavaFX](https://img.shields.io/badge/JavaFx-red)
+![TestFX](https://img.shields.io/badge/TestFx-orange)
+![CSS](https://img.shields.io/badge/CSS-blue)
+
 </div>
 
-## Description
+## 📌 About the Project
 
-- A Full CRUD project created with the intention of learning how that works behind the scenes
-- It can create, read, update and delete any Companies, Genres or Games from the ADM section
-- Create and delete your account as a client and list all games
-- Validations and test automation with TestFx
+HeavenOfGames is a **full CRUD application** developed to deepen my understanding of how CRUD operations work behind the scenes. This project allows users to manage various gaming-related entities and provides both client and admin functionalities.
 
-## Technologies Used
+### ✨ Features:
+- 🏢 **Admin Panel**: Create, read, update, and delete Companies, Genres, and Games.
+- 👤 **User Management**: Register and delete client accounts.
+- 🎮 **Game Listing**: Browse all available games.
+- ✅ **Validation & Testing**: Automated tests implemented using TestFX.
 
-- Programming Lenguages: Java
-- Database: MySql
-- Frontend Technologies: JavaFX and CSS
-- Version Control: Git for tracking changes
+## 🛠️ Technologies Used
+
+- **Programming Language:** Java  
+- **Database:** MySQL  
+- **Frontend Technologies:** JavaFX, CSS  
+- **Testing:** TestFX  
+- **Version Control:** Git 
