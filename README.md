@@ -1,4 +1,9 @@
-# HeavenOfGames_JDBC_FinalProject
+<div align="center">
+  # HeavenOfGames
+
+![Static Badge](https://img.shields.io/badge/Java-green)
+  
+</div>
 
 ## Description
 
