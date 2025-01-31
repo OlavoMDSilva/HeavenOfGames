@@ -1,7 +1,11 @@
 <div align="center">
-  # HeavenOfGames
+  
+# HeavenOfGames
 
 ![Static Badge](https://img.shields.io/badge/Java-green)
+![Static Badge](https://img.shields.io/badge/JavaFx-red)
+![Static Badge](https://img.shields.io/badge/TestFx-orange)
+![Static Badge](https://img.shields.io/badge/CSS-blue)
   
 </div>
 
