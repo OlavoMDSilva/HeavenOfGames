@@ -11,7 +11,7 @@
 
 ## 📌 About the Project
 
-HeavenOfGames is a **full CRUD application** developed to deepen my understanding of how CRUD operations work behind the scenes. This project allows users to manage various gaming-related entities and provides both client and admin functionalities.
+HeavenOfGames is a full CRUD application developed to deepen my understanding of how CRUD operations work behind the scenes. This project allows users to manage various gaming-related entities and includes functionalities for both clients and administrators. It was created as part of a school test and will not be published online for download.
 
 ### ✨ Features:
 - 🏢 **Admin Panel**: Create, read, update, and delete Companies, Genres, and Games.
